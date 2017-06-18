@@ -5,8 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GenreButton"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" 
+		Height="400" 
+		MaxHeight="400" 
+		Width="700" 
+		d:DataContext="{d:DesignInstance local:MainViewModel}">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition 
+				Height="50"/>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition 
+					Width="*"/>
+				<ColumnDefinition 
+					MaxWidth="100"/>
+				<ColumnDefinition 
+					MaxWidth="100"/>
+			</Grid.ColumnDefinitions>
+			<TextBox 
+				Text="{Binding Filename, UpdateSourceTrigger=PropertyChanged}"
+				VerticalContentAlignment="Center"
+				Grid.Column="0"
+				Margin="10" />
+			<Button 
+				Command="{Binding BrowseCommand}"
+				Grid.Column="1"
+				Margin="10">
+				Обзор
+			</Button>
+			<Button 
+				Command="{Binding AnalyzeCommand}"
+				Grid.Column="2"
+				Margin="10">
+				Анализ
+			</Button>
+		</Grid>
+		<ListView 
+			Grid.Row="1"
+			ItemsSource="{Binding Genres}">
+			
+		</ListView>
+	</Grid>
 </Window>

@@ -23,6 +23,7 @@ namespace GenreButton
 		public MainWindow()
 		{
 			InitializeComponent();
+			DataContext = new MainViewModel();
 		}
 	}
 }
